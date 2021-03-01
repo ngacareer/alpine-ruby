@@ -22,10 +22,10 @@ RUN cd /tmp && \
     rm -rf ruby-install-*
 RUN ruby-install --cleanup ruby 3.0.0
 
-RUN addgroup app && \
-    adduser -D -G app -h /app -s /bin/sh app
+RUN addgroup ngacareer && \
+    adduser -D -G ngacareer -h /ngacareer -s /bin/sh ngacareer
 
-USER app
-WORKDIR /app
+USER ngacareer
+WORKDIR /ngacareer
 
 ENTRYPOINT ["entrypoint.sh"]
