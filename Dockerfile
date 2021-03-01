@@ -14,7 +14,7 @@ LABEL maintainer="triuhv <ms@ngacareer.com>" \
     build="01-Mar-2021"
 
 RUN apk upgrade --no-cache --update && \
-    apk add --no-cache --update ca-certificates make bash build-base
+    apk add --no-cache --update dumb-init ca-certificates make bash build-base
 RUN cd /tmp && \
     wget -O - https://github.com/postmodern/ruby-install/archive/v0.8.1.tar.gz | tar xzvf - && \
     ( cd ruby-install-0.8.1 && \
@@ -28,4 +28,4 @@ RUN addgroup ngacareer && \
 USER ngacareer
 WORKDIR /ngacareer
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/dumb-init", "entrypoint.sh"]
