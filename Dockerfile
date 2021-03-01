@@ -16,11 +16,11 @@ LABEL maintainer="triuhv <ms@ngacareer.com>" \
 RUN apk upgrade --no-cache --update && \
     apk add --no-cache --update ca-certificates make bash build-base
 RUN cd /tmp && \
-    wget -O - https://github.com/postmodern/ruby-install/archive/v0.6.1.tar.gz | tar xzvf - && \
-    ( cd ruby-install-0.6.1 && \
+    wget -O - https://github.com/postmodern/ruby-install/archive/v0.8.1.tar.gz | tar xzvf - && \
+    ( cd ruby-install-0.8.1 && \
       make install ) && \
     rm -rf ruby-install-*
-RUN ruby-install --cleanup ruby 2.2
+RUN ruby-install --cleanup ruby 3.0.0
 
 RUN addgroup app && \
     adduser -D -G app -h /app -s /bin/sh app
