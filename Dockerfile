@@ -9,7 +9,7 @@ FROM  ngacareer/alpine-curl
 
 LABEL maintainer="triuhv <ms@ngacareer.com>" \
     architecture="amd64/x86_64" \
-    nodejs-version="14.16.0" \
+    ruby-version="3.0.0" \
     alpine-version="3.13" \
     build="01-Mar-2021"
 
